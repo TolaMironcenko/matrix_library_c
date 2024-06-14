@@ -346,6 +346,35 @@ void addCharMatrix(charMatrix *m1, charMatrix *m2) {
     printf("matrices cannot be added because they are of different lengths.\n");
     return;
 }
+void addToCharInt(charMatrix *m1, intMatrix *m2) {
+    if (m1->rows == m2->rows && m1->columns == m2->columns) {
+        for (int i = 0; i < m1->rows; i++) {
+            for (int j = 0; j < m1->columns; j++) {
+                m1->m[i][j] = m1->m[i][j] + m2->m[i][j];
+            }
+        }
+        return;
+    }
+    printf("matrices cannot be added because they are of different lengths.\n");
+    return;
+}
+charMatrix *rAddToCharInt(charMatrix *m1, intMatrix *m2) {
+    if (m1->rows == m2->rows && m1->columns == m2->columns) {
+        charMatrix *res = malloc(sizeof(res));
+        char resarray[m1->rows * m1->columns];
+        int resarrayiterator = 0;
+        for (int i = 0; i < m1->rows; i++) {
+            for (int j = 0; j < m1->columns; j++) {
+                resarray[resarrayiterator] = m1->m[i][j] + m2->m[i][j];
+                resarrayiterator++;
+            }
+        }
+        newCharMatrix(res, m1->rows, m1->columns, resarray);
+        return res;
+    }
+    printf("matrices cannot be added because they are of different lengths.\n");
+    return NULL;
+}
 // ----------------------------------------
 
 // ----------- sub functions ----------------------------
@@ -530,7 +559,7 @@ floatMatrix *subFromDoubleFloat(doubleMatrix *m1, floatMatrix *m2) {
         int resarrayiterator = 0;
         for (int i = 0; i < m1->rows; i++) {
             for (int j = 0; j < m1->columns; j++) {
-                resarray[resarrayiterator] = m1->m[i][j] + m2->m[i][j];
+                resarray[resarrayiterator] = m1->m[i][j] - m2->m[i][j];
                 resarrayiterator++;
             }
         }
@@ -551,5 +580,93 @@ void subCharMatrix(charMatrix *m1, charMatrix *m2) {
     }
     printf("matrices cannot be added because they are of different lengths.\n");
     return;
+}
+void subFromCharInt(charMatrix *m1, intMatrix *m2) {
+    if (m1->rows == m2->rows && m1->columns == m2->columns) {
+        for (int i = 0; i < m1->rows; i++) {
+            for (int j = 0; j < m1->columns; j++) {
+                m1->m[i][j] = m1->m[i][j] - m2->m[i][j];
+            }
+        }
+        return;
+    }
+    printf("matrices cannot be added because they are of different lengths.\n");
+    return;
+}
+charMatrix *rSubFromCharInt(charMatrix *m1, intMatrix *m2) {
+    if (m1->rows == m2->rows && m1->columns == m2->columns) {
+        charMatrix *res = malloc(sizeof(res));
+        char resarray[m1->rows * m1->columns];
+        int resarrayiterator = 0;
+        for (int i = 0; i < m1->rows; i++) {
+            for (int j = 0; j < m1->columns; j++) {
+                resarray[resarrayiterator] = m1->m[i][j] - m2->m[i][j];
+                resarrayiterator++;
+            }
+        }
+        newCharMatrix(res, m1->rows, m1->columns, resarray);
+        return res;
+    }
+    printf("matrices cannot be added because they are of different lengths.\n");
+    return NULL;
+}
+// ------------------------------------------------------
+
+// --------------- transpose functions ------------------
+void transponseIntMatrix(intMatrix *m1) {
+    int resarray[m1->rows * m1->columns];
+    int rows = m1->columns;
+    int columns = m1->rows;
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->columns; i++) {
+        for (int j = 0; j < m1->rows; j++) {
+            resarray[resarrayiterator] = m1->m[j][i];
+            resarrayiterator++;
+        }
+    }
+    freeIntMatrix(m1);
+    newIntMatrix(m1, rows, columns, resarray);
+}
+void transponseFloatMatrix(floatMatrix *m1) {
+    float resarray[m1->rows * m1->columns];
+    int rows = m1->columns;
+    int columns = m1->rows;
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->columns; i++) {
+        for (int j = 0; j < m1->rows; j++) {
+            resarray[resarrayiterator] = m1->m[j][i];
+            resarrayiterator++;
+        }
+    }
+    freeFloatMatrix(m1);
+    newFloatMatrix(m1, rows, columns, resarray);
+}
+void transponseDoubleMatrix(doubleMatrix *m1) {
+    double resarray[m1->rows * m1->columns];
+    int rows = m1->columns;
+    int columns = m1->rows;
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->columns; i++) {
+        for (int j = 0; j < m1->rows; j++) {
+            resarray[resarrayiterator] = m1->m[j][i];
+            resarrayiterator++;
+        }
+    }
+    freeDoubleMatrix(m1);
+    newDoubleMatrix(m1, rows, columns, resarray);
+}
+void transponseCharMatrix(charMatrix *m1) {
+    char resarray[m1->rows * m1->columns];
+    int rows = m1->columns;
+    int columns = m1->rows;
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->columns; i++) {
+        for (int j = 0; j < m1->rows; j++) {
+            resarray[resarrayiterator] = m1->m[j][i];
+            resarrayiterator++;
+        }
+    }
+    freeCharMatrix(m1);
+    newCharMatrix(m1, rows, columns, resarray);
 }
 // ------------------------------------------------------

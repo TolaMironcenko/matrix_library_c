@@ -44,6 +44,8 @@ void addToDoubleInt(doubleMatrix *m1, intMatrix *m2);
 doubleMatrix *rAddToDoubleInt(doubleMatrix *m1, intMatrix *m2);
 floatMatrix *addToDoubleFloat(doubleMatrix *m1, floatMatrix *m2);
 void addCharMatrix(charMatrix *m1, charMatrix *m2);
+void addToCharInt(charMatrix *m1, intMatrix *m2);
+charMatrix *rAddToCharInt(charMatrix *m1, intMatrix *m2);
 // ----------------------------------------
 
 // ----------- sub functions ----------------------------
@@ -61,6 +63,15 @@ void subFromDoubleInt(doubleMatrix *m1, intMatrix *m2);
 doubleMatrix *rSubFromDoubleInt(doubleMatrix *m1, intMatrix *m2);
 floatMatrix *subFromDoubleFloat(doubleMatrix *m1, floatMatrix *m2);
 void subCharMatrix(charMatrix *m1, charMatrix *m2);
+void subFromCharInt(charMatrix *m1, intMatrix *m2);
+charMatrix *rSubFromCharInt(charMatrix *m1, intMatrix *m2);
+// ------------------------------------------------------
+
+// --------------- transpose functions ------------------
+void transponseIntMatrix(intMatrix *m1);
+void transponseFloatMatrix(floatMatrix *m1);
+void transponseDoubleMatrix(doubleMatrix *m1);
+void transponseCharMatrix(charMatrix *m1);
 // ------------------------------------------------------
 
 #endif // MATRIX_H
