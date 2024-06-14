@@ -74,4 +74,45 @@ void transponseDoubleMatrix(doubleMatrix *m1);
 void transponseCharMatrix(charMatrix *m1);
 // ------------------------------------------------------
 
+// ---------------- multiply functions ----------------------------
+void multiplyByIntNumInt(intMatrix *m1, const int num);
+intMatrix *rMultiplyByIntNumInt(intMatrix *m1, const int num);
+floatMatrix *multiplyByFloatNumInt(intMatrix *m1, const float num);
+doubleMatrix *multiplyByDoubleNumInt(intMatrix *m1, const double num);
+void multiplyByIntNumFloat(floatMatrix *m1, const int num);
+floatMatrix *rMultiplyByIntNumFloat(floatMatrix *m1, const int num);
+void multiplyByFloatNumFloat(floatMatrix *m1, const float num);
+floatMatrix *rMultiplyByFloatNumFloat(floatMatrix *m1, const float num);
+void multiplyByDoubleNumFloat(floatMatrix *m1, const double num);
+floatMatrix *rMultiplyByDoubleNumFloat(floatMatrix *m1, const double num);
+void multiplyByIntNumDouble(doubleMatrix *m1, const int num);
+doubleMatrix *rMultiplyByIntNumDouble(doubleMatrix *m1, const int num);
+void multiplyByDoubleNumDouble(doubleMatrix *m1, const double num);
+doubleMatrix *rMultiplyByDoubleNumDouble(doubleMatrix *m1, const double num);
+floatMatrix *multiplyByFloatNumDouble(doubleMatrix *m1, const float num);
+void multiplyByIntNumChar(charMatrix *m1, const int num);
+charMatrix *rMultiplyByIntNumChar(charMatrix *m1, const int num);
+// ----------------------------------------------------------------
+
+// ---------------- copy functions ------------------
+intMatrix *copyIntMatrix(intMatrix *m1);
+floatMatrix *copyFloatMatrix(floatMatrix *m1);
+doubleMatrix *copyDoubleMatrix(doubleMatrix *m1);
+charMatrix *copyCharMatrix(charMatrix *m1);
+// --------------------------------------------------
+
+// -------------- get value functions ----------------
+int getValueFromInt(intMatrix *m1, const int row, const int column);
+float getValueFromFloat(floatMatrix *m1, const int row, const int column);
+double getValueFromDouble(doubleMatrix *m1, const int row, const int column);
+char getValueFromchar(charMatrix *m1, const int row, const int column);
+// ---------------------------------------------------
+
+// ----------------- set value functions ------------------------------
+void setValueToInt(intMatrix *m1, const int row, const int column, int value);
+void setValueToFloat(floatMatrix *m1, const int row, const int column, float value);
+void setValueToDouble(doubleMatrix *m1, const int row, const int column, double value);
+void setValueToChar(charMatrix *m1, const int row, const int column, char value);
+// --------------------------------------------------------------------
+
 #endif // MATRIX_H

@@ -1,25 +1,30 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <matrix/matrix.h>
+#include <libcmatrix/matrix.h>
 
 int main() {
     system("clear");
 
     int rows = 3;
     int columns = 2;
-    char mtri[6] = "qwerty";
+    int mtri[6] = {1, 2, 3, 4, 5, 6};
 
     printf("int matrix:\n");
 
-    charMatrix *mi = malloc(sizeof(mi));
-    newCharMatrix(mi, rows, columns, mtri);
-    printCharMatrix(mi);
+    intMatrix *mi = malloc(sizeof(mi));
+    newIntMatrix(mi, rows, columns, mtri);
+    printIntMatrix(mi);
+    printf("\n\n");
+    setValueToInt(mi, 1, 1, 1000);
+    printIntMatrix(mi);
+    // intMatrix *mi1 = copyIntMatrix(mi);
+    // printIntMatrix(mi);
+    // printf("\n\n");
+    // printIntMatrix(mi1);
 
-    printf("\n\ntransponsed:\n");
-    transponseCharMatrix(mi);
-    printCharMatrix(mi);
+    printf("\n\n%d  %d\n", getValueFromInt(mi, 1, 1), getValueFromInt(mi, 2, 2));
 
-    freeCharMatrix(mi);
-
+    freeIntMatrix(mi);
+    // freeIntMatrix(mi1);
     return 0;
 }
