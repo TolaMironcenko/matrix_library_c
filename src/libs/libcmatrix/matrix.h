@@ -92,6 +92,17 @@ doubleMatrix *rMultiplyByDoubleNumDouble(doubleMatrix *m1, const double num);
 floatMatrix *multiplyByFloatNumDouble(doubleMatrix *m1, const float num);
 void multiplyByIntNumChar(charMatrix *m1, const int num);
 charMatrix *rMultiplyByIntNumChar(charMatrix *m1, const int num);
+intMatrix *multiplyIntMatrix(intMatrix *m1, intMatrix *m2);
+floatMatrix *multiplyIntWithFloatMatrix(intMatrix *m1, floatMatrix *m2);
+doubleMatrix *multiplyIntWithDoubleMatrix(intMatrix *m1, doubleMatrix *m2);
+charMatrix *multiplyIntWithCharMatrix(intMatrix *m1, charMatrix *m2);
+floatMatrix *multiplyFloatMatrix(floatMatrix *m1, floatMatrix *m2);
+floatMatrix *multiplyFloatWithIntMatrix(floatMatrix *m1, intMatrix *m2);
+floatMatrix *multiplyFloatWithDoubleMatrix(floatMatrix *m1, doubleMatrix *m2);
+doubleMatrix *multiplyDoubleMatrix(doubleMatrix *m1, doubleMatrix *m2);
+doubleMatrix *multiplyDoubleWithIntMatrix(doubleMatrix *m1, intMatrix *m2);
+floatMatrix *multiplyDoubleWithFloatMatrix(doubleMatrix *m1, floatMatrix *m2);
+charMatrix *multiplyCharMatrix(charMatrix *m1, charMatrix *m2);
 // ----------------------------------------------------------------
 
 // ---------------- copy functions ------------------
@@ -114,5 +125,21 @@ void setValueToFloat(floatMatrix *m1, const int row, const int column, float val
 void setValueToDouble(doubleMatrix *m1, const int row, const int column, double value);
 void setValueToChar(charMatrix *m1, const int row, const int column, char value);
 // --------------------------------------------------------------------
+
+// --------------------- transform functions ---------------------
+intMatrix *transformFromFloatToInt(floatMatrix *m1);
+intMatrix *transformFromDoubleToInt(doubleMatrix *m1);
+intMatrix *transformFromCharToInt(charMatrix *m1);
+
+floatMatrix *transformFromIntToFloat(intMatrix *m1);
+floatMatrix *transformFromDoubleToFloat(doubleMatrix *m1);
+floatMatrix *transformFromCharToFloat(charMatrix *m1);
+
+doubleMatrix *transformFromIntToDouble(intMatrix *m1);
+doubleMatrix *transformFromFloatToDouble(floatMatrix *m1);
+doubleMatrix *transformFromCharToDouble(charMatrix *m1);
+
+charMatrix *transformFromIntToChar(intMatrix *m1);
+// ---------------------------------------------------------------
 
 #endif // MATRIX_H

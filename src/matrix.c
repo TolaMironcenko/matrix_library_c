@@ -5,26 +5,24 @@
 int main() {
     system("clear");
 
-    int rows = 3;
-    int columns = 2;
-    int mtri[6] = {1, 2, 3, 4, 5, 6};
+    int arr1[4] = {5, 2, 3, 1};
+    float arr2[4] = {4, 6, 5, 2};
 
-    printf("int matrix:\n");
+    intMatrix *m1 = malloc(sizeof(m1));
+    newIntMatrix(m1, 2, 2, arr1);
+    floatMatrix *m2 = malloc(sizeof(m2));
+    newFloatMatrix(m2, 2, 2, arr2);
 
-    intMatrix *mi = malloc(sizeof(mi));
-    newIntMatrix(mi, rows, columns, mtri);
-    printIntMatrix(mi);
-    printf("\n\n");
-    setValueToInt(mi, 1, 1, 1000);
-    printIntMatrix(mi);
-    // intMatrix *mi1 = copyIntMatrix(mi);
-    // printIntMatrix(mi);
-    // printf("\n\n");
-    // printIntMatrix(mi1);
+    printf("m1:\n");
+    printIntMatrix(m1);
+    printf("\nm2:\n");
+    printFloatMatrix(m2);
+    printf("\nres:\n");
+    printIntMatrix(transformFromFloatToInt(m2));
+    // printFloatMatrix(multiplyFloatWithIntMatrix(m2, m1));
 
-    printf("\n\n%d  %d\n", getValueFromInt(mi, 1, 1), getValueFromInt(mi, 2, 2));
 
-    freeIntMatrix(mi);
-    // freeIntMatrix(mi1);
+    freeIntMatrix(m1);
+    freeFloatMatrix(m2);
     return 0;
 }

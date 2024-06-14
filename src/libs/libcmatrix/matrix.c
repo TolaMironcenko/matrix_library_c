@@ -718,7 +718,6 @@ doubleMatrix *multiplyByDoubleNumInt(intMatrix *m1, const double num) {
     newDoubleMatrix(res, m1->rows, m1->columns, resarray);
     return res;
 }
-
 void multiplyByIntNumFloat(floatMatrix *m1, const int num) {
     for (int i = 0; i < m1->rows; i++) {
         for (int j = 0; j < m1->columns; j++) {
@@ -779,8 +778,6 @@ floatMatrix *rMultiplyByDoubleNumFloat(floatMatrix *m1, const double num) {
     newFloatMatrix(res, m1->rows, m1->columns, resarray);
     return res;
 }
-
-
 void multiplyByIntNumDouble(doubleMatrix *m1, const int num) {
     for (int i = 0; i < m1->rows; i++) {
         for (int j = 0; j < m1->columns; j++) {
@@ -834,8 +831,6 @@ floatMatrix *multiplyByFloatNumDouble(doubleMatrix *m1, const float num) {
     newFloatMatrix(res, m1->rows, m1->columns, resarray);
     return res;
 }
-
-
 void multiplyByIntNumChar(charMatrix *m1, const int num) {
     for (int i = 0; i < m1->rows; i++) {
         for (int j = 0; j < m1->columns; j++) {
@@ -854,6 +849,183 @@ charMatrix *rMultiplyByIntNumChar(charMatrix *m1, const int num) {
     }
     charMatrix *res = malloc(sizeof(res));
     newCharMatrix(res, m1->rows, m1->columns, resarray);
+    return res;
+}
+
+intMatrix *multiplyIntMatrix(intMatrix *m1, intMatrix *m2) {
+    int resarray[m1->rows * m2->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m2->columns; j++) {
+            resarray[resarrayiterator] = 0;
+            for (int k = 0; k < m1->columns; k++) {
+                resarray[resarrayiterator] += m1->m[i][k] * m2->m[k][j];
+            }
+            resarrayiterator++;
+        }
+    }
+    intMatrix *res = malloc(sizeof(res));
+    newIntMatrix(res, m1->rows, m2->columns, resarray);
+    return res;
+}
+floatMatrix *multiplyIntWithFloatMatrix(intMatrix *m1, floatMatrix *m2) {
+    float resarray[m1->rows * m2->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m2->columns; j++) {
+            resarray[resarrayiterator] = 0;
+            for (int k = 0; k < m1->columns; k++) {
+                resarray[resarrayiterator] += m1->m[i][k] * m2->m[k][j];
+            }
+            resarrayiterator++;
+        }
+    }
+    floatMatrix *res = malloc(sizeof(res));
+    newFloatMatrix(res, m1->rows, m2->columns, resarray);
+    return res;
+}
+doubleMatrix *multiplyIntWithDoubleMatrix(intMatrix *m1, doubleMatrix *m2) {
+    double resarray[m1->rows * m2->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m2->columns; j++) {
+            resarray[resarrayiterator] = 0;
+            for (int k = 0; k < m1->columns; k++) {
+                resarray[resarrayiterator] += m1->m[i][k] * m2->m[k][j];
+            }
+            resarrayiterator++;
+        }
+    }
+    doubleMatrix *res = malloc(sizeof(res));
+    newDoubleMatrix(res, m1->rows, m2->columns, resarray);
+    return res;
+}
+charMatrix *multiplyIntWithCharMatrix(intMatrix *m1, charMatrix *m2) {
+    char resarray[m1->rows * m2->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m2->columns; j++) {
+            resarray[resarrayiterator] = 0;
+            for (int k = 0; k < m1->columns; k++) {
+                resarray[resarrayiterator] += m1->m[i][k] * m2->m[k][j];
+            }
+            resarrayiterator++;
+        }
+    }
+    charMatrix *res = malloc(sizeof(res));
+    newCharMatrix(res, m1->rows, m2->columns, resarray);
+    return res;
+}
+floatMatrix *multiplyFloatMatrix(floatMatrix *m1, floatMatrix *m2) {
+    float resarray[m1->rows * m2->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m2->columns; j++) {
+            resarray[resarrayiterator] = 0;
+            for (int k = 0; k < m1->columns; k++) {
+                resarray[resarrayiterator] += m1->m[i][k] * m2->m[k][j];
+            }
+            resarrayiterator++;
+        }
+    }
+    floatMatrix *res = malloc(sizeof(res));
+    newFloatMatrix(res, m1->rows, m2->columns, resarray);
+    return res;
+}
+floatMatrix *multiplyFloatWithIntMatrix(floatMatrix *m1, intMatrix *m2) {
+     float resarray[m1->rows * m2->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m2->columns; j++) {
+            resarray[resarrayiterator] = 0;
+            for (int k = 0; k < m1->columns; k++) {
+                resarray[resarrayiterator] += m1->m[i][k] * m2->m[k][j];
+            }
+            resarrayiterator++;
+        }
+    }
+    floatMatrix *res = malloc(sizeof(res));
+    newFloatMatrix(res, m1->rows, m2->columns, resarray);
+    return res;
+}
+floatMatrix *multiplyFloatWithDoubleMatrix(floatMatrix *m1, doubleMatrix *m2) {
+    float resarray[m1->rows * m2->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m2->columns; j++) {
+            resarray[resarrayiterator] = 0;
+            for (int k = 0; k < m1->columns; k++) {
+                resarray[resarrayiterator] += m1->m[i][k] * m2->m[k][j];
+            }
+            resarrayiterator++;
+        }
+    }
+    floatMatrix *res = malloc(sizeof(res));
+    newFloatMatrix(res, m1->rows, m2->columns, resarray);
+    return res;
+}
+doubleMatrix *multiplyDoubleMatrix(doubleMatrix *m1, doubleMatrix *m2) {
+    double resarray[m1->rows * m2->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m2->columns; j++) {
+            resarray[resarrayiterator] = 0;
+            for (int k = 0; k < m1->columns; k++) {
+                resarray[resarrayiterator] += m1->m[i][k] * m2->m[k][j];
+            }
+            resarrayiterator++;
+        }
+    }
+    doubleMatrix *res = malloc(sizeof(res));
+    newDoubleMatrix(res, m1->rows, m2->columns, resarray);
+    return res;
+}
+doubleMatrix *multiplyDoubleWithIntMatrix(doubleMatrix *m1, intMatrix *m2) {
+    double resarray[m1->rows * m2->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m2->columns; j++) {
+            resarray[resarrayiterator] = 0;
+            for (int k = 0; k < m1->columns; k++) {
+                resarray[resarrayiterator] += m1->m[i][k] * m2->m[k][j];
+            }
+            resarrayiterator++;
+        }
+    }
+    doubleMatrix *res = malloc(sizeof(res));
+    newDoubleMatrix(res, m1->rows, m2->columns, resarray);
+    return res;
+}
+floatMatrix *multiplyDoubleWithFloatMatrix(doubleMatrix *m1, floatMatrix *m2) {
+    float resarray[m1->rows * m2->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m2->columns; j++) {
+            resarray[resarrayiterator] = 0;
+            for (int k = 0; k < m1->columns; k++) {
+                resarray[resarrayiterator] += m1->m[i][k] * m2->m[k][j];
+            }
+            resarrayiterator++;
+        }
+    }
+    floatMatrix *res = malloc(sizeof(res));
+    newFloatMatrix(res, m1->rows, m2->columns, resarray);
+    return res;
+}
+charMatrix *multiplyCharMatrix(charMatrix *m1, charMatrix *m2) {
+    char resarray[m1->rows * m2->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m2->columns; j++) {
+            resarray[resarrayiterator] = 0;
+            for (int k = 0; k < m1->columns; k++) {
+                resarray[resarrayiterator] += m1->m[i][k] * m2->m[k][j];
+            }
+            resarrayiterator++;
+        }
+    }
+    charMatrix *res = malloc(sizeof(res));
+    newCharMatrix(res, m1->rows, m2->columns, resarray);
     return res;
 }
 // ----------------------------------------------------------------
@@ -942,3 +1114,136 @@ void setValueToChar(charMatrix *m1, const int row, const int column, char value)
     m1->m[row][column] = value;
 }
 // --------------------------------------------------------------------
+
+// --------------------- transform functions ---------------------
+intMatrix *transformFromFloatToInt(floatMatrix *m1) {
+    int resarray[m1->rows * m1->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m1->columns; j++) {
+            resarray[resarrayiterator] = m1->m[i][j];
+            resarrayiterator++;
+        }
+    }
+    intMatrix *res = malloc(sizeof(res));
+    newIntMatrix(res, m1->rows, m1->columns, resarray);
+    return res;
+}
+intMatrix *transformFromDoubleToInt(doubleMatrix *m1) {
+    int resarray[m1->rows * m1->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m1->columns; j++) {
+            resarray[resarrayiterator] = m1->m[i][j];
+            resarrayiterator++;
+        }
+    }
+    intMatrix *res = malloc(sizeof(res));
+    newIntMatrix(res, m1->rows, m1->columns, resarray);
+    return res;
+}
+intMatrix *transformFromCharToInt(charMatrix *m1) {
+    int resarray[m1->rows * m1->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m1->columns; j++) {
+            resarray[resarrayiterator] = m1->m[i][j];
+            resarrayiterator++;
+        }
+    }
+    intMatrix *res = malloc(sizeof(res));
+    newIntMatrix(res, m1->rows, m1->columns, resarray);
+    return res;
+}
+floatMatrix *transformFromIntToFloat(intMatrix *m1) {
+    float resarray[m1->rows * m1->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m1->columns; j++) {
+            resarray[resarrayiterator] = m1->m[i][j];
+            resarrayiterator++;
+        }
+    }
+    floatMatrix *res = malloc(sizeof(res));
+    newFloatMatrix(res, m1->rows, m1->columns, resarray);
+    return res;
+}
+floatMatrix *transformFromDoubleToFloat(doubleMatrix *m1) {
+    float resarray[m1->rows * m1->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m1->columns; j++) {
+            resarray[resarrayiterator] = m1->m[i][j];
+            resarrayiterator++;
+        }
+    }
+    floatMatrix *res = malloc(sizeof(res));
+    newFloatMatrix(res, m1->rows, m1->columns, resarray);
+    return res;
+}
+floatMatrix *transformFromCharToFloat(charMatrix *m1) {
+    float resarray[m1->rows * m1->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m1->columns; j++) {
+            resarray[resarrayiterator] = m1->m[i][j];
+            resarrayiterator++;
+        }
+    }
+    floatMatrix *res = malloc(sizeof(res));
+    newFloatMatrix(res, m1->rows, m1->columns, resarray);
+    return res;
+}
+doubleMatrix *transformFromIntToDouble(intMatrix *m1) {
+    double resarray[m1->rows * m1->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m1->columns; j++) {
+            resarray[resarrayiterator] = m1->m[i][j];
+            resarrayiterator++;
+        }
+    }
+    doubleMatrix *res = malloc(sizeof(res));
+    newDoubleMatrix(res, m1->rows, m1->columns, resarray);
+    return res;
+}
+doubleMatrix *transformFromFloatToDouble(floatMatrix *m1) {
+    double resarray[m1->rows * m1->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m1->columns; j++) {
+            resarray[resarrayiterator] = m1->m[i][j];
+            resarrayiterator++;
+        }
+    }
+    doubleMatrix *res = malloc(sizeof(res));
+    newDoubleMatrix(res, m1->rows, m1->columns, resarray);
+    return res;
+}
+doubleMatrix *transformFromCharToDouble(charMatrix *m1) {
+    double resarray[m1->rows * m1->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m1->columns; j++) {
+            resarray[resarrayiterator] = m1->m[i][j];
+            resarrayiterator++;
+        }
+    }
+    doubleMatrix *res = malloc(sizeof(res));
+    newDoubleMatrix(res, m1->rows, m1->columns, resarray);
+    return res;
+}
+charMatrix *transformFromIntToChar(intMatrix *m1) {
+    char resarray[m1->rows * m1->columns];
+    int resarrayiterator = 0;
+    for (int i = 0; i < m1->rows; i++) {
+        for (int j = 0; j < m1->columns; j++) {
+            resarray[resarrayiterator] = m1->m[i][j];
+            resarrayiterator++;
+        }
+    }
+    charMatrix *res = malloc(sizeof(res));
+    newCharMatrix(res, m1->rows, m1->columns, resarray);
+    return res;
+}
+// ---------------------------------------------------------------
