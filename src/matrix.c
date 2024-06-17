@@ -5,7 +5,7 @@
 int main() {
     system("clear");
 
-    int arr1[4] = {5, 2, 3, 1};
+    int arr1[4] = {1, 2, 3, 4};
     float arr2[4] = {4, 6, 5, 2};
 
     intMatrix *m1 = malloc(sizeof(m1));
@@ -19,6 +19,16 @@ int main() {
     printFloatMatrix(m2);
     printf("\nres:\n");
     printIntMatrix(transformFromFloatToInt(m2));
+    int *arr11 = toIntArrayFloat(m2);
+    for (int i = 0; i < 4; i++) {
+        printf("%d   ", arr11[i]);
+    }
+    printf("\n");
+
+    // powIntMatrix(m1, 2);
+    // printf("\n\npowed matrix:\n");
+    // printIntMatrix(m1);
+
     // printFloatMatrix(multiplyFloatWithIntMatrix(m2, m1));
 
 

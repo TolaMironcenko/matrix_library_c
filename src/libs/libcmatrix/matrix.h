@@ -142,4 +142,23 @@ doubleMatrix *transformFromCharToDouble(charMatrix *m1);
 charMatrix *transformFromIntToChar(intMatrix *m1);
 // ---------------------------------------------------------------
 
+// ------------------- to array functions ------------------------
+int *toArrayInt(intMatrix *m1);
+float *toFloatArrayInt(intMatrix *m1);
+double *toDoubleArrayInt(intMatrix *m1);
+char *toCharArrayInt(intMatrix *m1);
+float *toArrayFloat(floatMatrix *m1);
+int *toIntArrayFloat(floatMatrix *m1);
+double *toDoubleArrayFloat(floatMatrix *m1);
+double *toArrayDouble(doubleMatrix *m1);
+int *toIntArrayDouble(doubleMatrix *m1);
+float *toFloatArrayDouble(doubleMatrix *m1);
+char *toArrayChar(charMatrix *m1);
+int *toIntArrayChar(charMatrix *m1);
+// ---------------------------------------------------------------
+
+// ------------ pow functions -------
+// void *powIntMatrix(intMatrix *m1, const int powlvl);
+// ----------------------------------
+
 #endif // MATRIX_H
